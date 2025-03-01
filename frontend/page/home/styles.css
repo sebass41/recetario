@@ -1,0 +1,105 @@
+/* Archivo: styles.css */
+
+body {
+    background-color: #f5f5f5; /* Gris claro */
+    color: #333; /* Gris oscuro para el texto */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffc0cb; /* Rosa claro */
+    color: #fff; /* Blanco para el texto */
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    background-color: #333; /* Gris oscuro / Negro */
+    color: #fff; /* Blanco para el texto */
+    padding: 10px;
+    border-radius: 2px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #ffc0cb; /* Rosa claro */
+    text-decoration: none;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #333; /* Gris oscuro / Negro */
+    padding: 10px;
+    list-style-type: none;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li {
+    margin: 5px 0;
+}
+
+nav ul li ul li a {
+    color: #ffc0cb; /* Rosa claro */
+}
+
+nav ul li ul li a:hover {
+    color: #ff69b4; /* Rosa más oscuro al pasar el ratón */
+}
+
+main {
+    padding: 20px;
+}
+
+.carrusel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.carrusel h2 {
+    color: #ff69b4; /* Rosa más oscuro */
+    text-align: center;
+}
+
+.featured-recipes h2 {
+    color: #333; /* Gris oscuro */
+}
+
+footer {
+    background-color: #333; /* Gris oscuro / Negro */
+    color: #fff; /* Blanco para el texto */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
