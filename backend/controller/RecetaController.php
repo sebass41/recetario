@@ -11,7 +11,7 @@ switch ($funcion){
     case 'getRecetas':
         getResetas();
         break;
-    case 'setReceta':
+    case 'a':
         setReceta();
         break;
     case 'updateReceta':
@@ -25,30 +25,33 @@ switch ($funcion){
 function getResetas(){
     $result = (new RecetaDAO())->getRecetas();
     echo json_encode($result);
-}
+} 
 
 function setReceta(){
     $nombre = $_POST['nombre'];
     $img = $_FILES['img'];
-    $categoria = $_POST['categoria'];
-    $t_preparacion = $_POST['t_preparacion'];
-    $t_coccion = $_POST['t_coccion'];
-    $porciones = $_POST['porciones'];
-    $instrucciones = $_POST['instrucciones'];
-    $tipo = $_POST['tipo'];
+    $categoria = $_POST['cate'];
+    $t_preparacion = $_POST['tiempoP'];
+    $t_coccion = $_POST['tiempoC'];
+    $porciones = $_POST['porcion'];
+    $instrucciones = $_POST['inst'];
+    $ingredientes = json_decode($_POST['ingr']);
+    $cantidades = json_decode($_POST['cant']);
+    $unidades = json_decode($_POST['unidades']);
 
-    $result = (new RecetaDAO())->setReceta($nombre, $img, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $tipo);
+
+    $result = (new RecetaDAO())->setReceta($nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades);
     echo json_encode($result);
 }
 
 function updateReceta(){
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
-    $categoria = $_POST['categoria'];
-    $t_preparacion = $_POST['t_preparacion'];
-    $t_coccion = $_POST['t_coccion'];
-    $porciones = $_POST['porciones'];
-    $instrucciones = $_POST['instrucciones'];
+    $categoria = $_POST['cate'];
+    $t_preparacion = $_POST['tiempoP'];
+    $t_coccion = $_POST['tiempoC'];
+    $porciones = $_POST['porcion'];
+    $instrucciones = $_POST['inst'];
     $tipo = $_POST['tipo'];
 
     $result = (new RecetaDAO())->updateReceta($id, $nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $tipo);

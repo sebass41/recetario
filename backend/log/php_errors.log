@@ -1,0 +1,50 @@
+[29-May-2025 20:10:28 Europe/Berlin] PHP Warning:  Undefined array key "img" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 32
+[29-May-2025 20:10:28 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:35
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(39): RecetaDAO->setReceta('Sebastian', NULL, '2', '2', '2', 'null', 'gdadsfdsa')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(15): setReceta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 35
+[29-May-2025 20:13:49 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:35
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(39): RecetaDAO->setReceta('asdf', Array, 'Postre', '2', '3', '2', 'fdsadf')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(15): setReceta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 35
+[02-Jun-2025 00:35:38 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:35
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(39): RecetaDAO->setReceta('asdf', Array, 'Postre', '2', '3', '2', 'fdsadf')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(15): setReceta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 35
+[02-Jun-2025 00:40:38 Europe/Berlin] PHP Warning:  move_uploaded_file(../img/recetas/2.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 50
+[02-Jun-2025 00:40:38 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\phpB4EF.tmp&quot; to &quot;../img/recetas/2.jpg&quot; in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 50
+[02-Jun-2025 00:52:11 Europe/Berlin] PHP Warning:  Undefined array key "img" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 32
+[02-Jun-2025 00:52:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 35
+[02-Jun-2025 00:52:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 49
+[02-Jun-2025 00:53:41 Europe/Berlin] PHP Warning:  Undefined array key "img" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 32
+[02-Jun-2025 00:53:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 35
+[02-Jun-2025 00:53:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 49
+[02-Jun-2025 06:15:54 Europe/Berlin] PHP Warning:  Undefined array key "ingr" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 38
+[02-Jun-2025 06:15:54 Europe/Berlin] PHP Warning:  Undefined array key "cant" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 39
+[02-Jun-2025 06:15:54 Europe/Berlin] PHP Warning:  Undefined array key "unidades" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 40
+[02-Jun-2025 08:05:33 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:55
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(42): RecetaDAO->setReceta('Brawni', '4', 'null', 'null', 'null', 'fdjklas\xC3\xB1kf', Array, 'Huevo,Harina', '3,6', 'fdsa')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(15): setReceta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 55
+[02-Jun-2025 08:16:31 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:55
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(42): RecetaDAO->setReceta('Brawni', '1', '90', '30', '5', 'ghghgkj', Array, 'Huevo,Harina', '3,6', 'taas')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(15): setReceta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 55
+[02-Jun-2025 08:17:01 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:55
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(42): RecetaDAO->setReceta('Brawni', '1', '90', '30', '5', 'ghghgkj', Array, 'Huevo,Harina', '3,6', 'taas')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(15): setReceta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 55
+[02-Jun-2025 08:26:54 Europe/Berlin] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 58
+[02-Jun-2025 08:28:43 Europe/Berlin] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 58

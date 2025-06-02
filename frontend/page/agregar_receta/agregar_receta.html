@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Receta</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="agregar.js" type="module"></script>
+</head>
+<body>
+    <main>
+        <h1>Nueva Receta</h1>
+        <form action="" id="formReceta">
+            <section class="datosReceta">
+                <div class="nombrePorcion">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre">
+
+                    <label for="porcion">Porciones</label>
+                    <div class="porciones">
+                        <button type="button" class="menos">-</button>
+                        <input type="number" name="porcion" id="porcion">
+                        <button type="button" class="mas">+</button>
+                    </div>
+
+                    <label for="cate">Categoría</label>
+                    <select name="cate" id="cate">
+                        <option value="1">Entrada</option>
+                        <option value="2">plato Principal</option>
+                        <option value="3">Guarnición</option>
+                        <option value="4">Postre</option>
+                        <option value="5">Bebida</option>
+                    </select>
+
+                    <label for="tiempoP">Tiempo de Preparación</label>
+                    <input type="number" name="tiempoP">
+
+                    <label for="tiempoC">Tiempo de Cocción</label>
+                    <input type="number" name="tiempoC">
+
+                    <label for="inst">Instrucciones</label>
+                    <textarea name="inst" id="inst"></textarea>
+                </div>
+
+                <label for="img">Foto</label>
+                <input type="file" name="img" id="img">
+            </section>
+
+            <section class="datosIngredientes">
+                <div class="head">
+                    <label for="ingrediente">Ingrediente</label>
+                    <label for="cant">Cantidad</label>
+                    <label for="uM">Unidad de Medida</label>
+                </div>
+                
+                <div class="body">
+                    <input type="text" name="ingredientes[]"">
+                    <input type="number" name="cant[]">
+                    <input type="text" name="uM">
+                </div>
+                
+                <button type="button" id="add">+</button>
+                
+            </section>
+            <input type="submit" value="Guardar">
+        </form>
+    </main>
+    </form>
+</body>
+</html>

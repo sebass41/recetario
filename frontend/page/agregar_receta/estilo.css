@@ -1,0 +1,220 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f8f8;
+  padding: 2rem;
+  color: #333;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #222;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.datosReceta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nombrePorcion {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nombrePorcion label {
+  font-weight: 600;
+}
+
+.nombrePorcion input[type="text"],
+.nombrePorcion input[type="number"], textarea,
+select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s ease;
+}
+
+.porciones{
+    width: 80%;
+}
+
+.nombrePorcion input:focus, textarea {
+  border-color: #6666ff;
+  outline: none;
+  box-shadow: 0 0 5px #aaa;
+}
+
+.nombrePorcion .menos,
+.nombrePorcion .mas,
+#add {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  background-color: #7c3aed;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nombrePorcion .menos:hover,
+.nombrePorcion .mas:hover {
+  background-color: #5b21b6;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#inst {
+  height: 80px;
+}
+
+label[for="cate"] {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333;
+}
+
+select#cate {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    appearance: none;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+}
+
+select#cate:focus {
+    border-color: #7a57ff;
+    box-shadow: 0 0 0 3px rgba(122, 87, 255, 0.2);
+    background-color: #fff;
+}
+
+/* Foto */
+#img {
+  flex: 1;
+  min-width: 220px;
+  padding: 1rem;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background-color: #fafafa;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+#img:hover {
+  border-color: #6666ff;
+}
+
+/* Ingredientes */
+.datosIngredientes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.head, .body{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.datosIngredientes input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.datosIngredientes input:focus {
+  border-color: #6666ff;
+  box-shadow: 0 0 5px #ccc;
+}
+
+/* Botón */
+input[type="submit"] {
+  align-self: center;
+  padding: 0.7rem 2rem;
+  background-color: #10b981;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #059669;
+}
+
+#add{
+    width: 30%;
+}
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .datosReceta {
+    flex-direction: column;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}

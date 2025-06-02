@@ -78,11 +78,27 @@ main {
     padding: 20px;
 }
 
-.carrusel img {
+.carrusel {
+    position: relative;
+    overflow: hidden;
     width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.carrusel img {
+    width: 700px;
     height: auto;
-    display: block;
-    margin: 10px 0;
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: auto;
 }
 
 .carrusel h2 {
