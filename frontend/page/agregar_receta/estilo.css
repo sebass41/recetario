@@ -133,21 +133,25 @@ select#cate:focus {
 }
 
 /* Foto */
-#img {
-  flex: 1;
-  min-width: 220px;
-  padding: 1rem;
-  border: 2px dashed #ccc;
-  border-radius: 10px;
-  background-color: #fafafa;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color 0.3s;
+.file-upload input[type="file"] {
+    display: none;
 }
 
-#img:hover {
-  border-color: #6666ff;
+.file-upload label img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    transition: border-color 0.3s;
 }
+
+.file-upload label img:hover {
+    border-color: #666;
+}
+
 
 /* Ingredientes */
 .datosIngredientes {
@@ -175,6 +179,28 @@ select#cate:focus {
   box-shadow: 0 0 5px #ccc;
 }
 
+.delete-ingr {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_delete {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.delete-ingr:hover .img_delete {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
 /* Botón */
 input[type="submit"] {
   align-self: center;
@@ -197,6 +223,27 @@ input[type="submit"]:hover {
     width: 30%;
 }
 /* Animación */
+@keyframes fadeSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+    height: auto;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.body.removing {
+  animation: fadeSlideOut 0.9s forwards;
+  overflow: hidden;
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;

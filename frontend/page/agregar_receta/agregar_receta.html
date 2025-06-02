@@ -42,8 +42,14 @@
                     <textarea name="inst" id="inst"></textarea>
                 </div>
 
-                <label for="img">Foto</label>
-                <input type="file" name="img" id="img">
+                <div class="file-upload">
+                    <input type="file" id="img" name="img" accept="image/*">
+                    <label for="img">
+                        <img id="preview" src="../../assets/icon/upload_file.png" alt="Subir imagen">
+                    </label>
+                </div>
+
+
             </section>
 
             <section class="datosIngredientes">
@@ -54,14 +60,17 @@
                 </div>
                 
                 <div class="body">
-                    <input type="text" name="ingredientes[]"">
+                    <input type="text" name="ingredientes[]">
                     <input type="number" name="cant[]">
-                    <input type="text" name="uM">
+                    <input type="text" name="uM[]">
+                    <button type="button" class="delete-ingr" style="display: none;">
+                        <img src="../../assets/icon/delete_icon.png" alt="Eliminar Ingrediente" class="img_delete">
+                    </button>
                 </div>
-                
-                <button type="button" id="add">+</button>
+
                 
             </section>
+            <button type="button" id="add">+</button>
             <input type="submit" value="Guardar">
         </form>
     </main>
