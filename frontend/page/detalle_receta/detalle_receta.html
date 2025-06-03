@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle de Receta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <button class="volver" aria-label="Volver atrás">&#x2B05;</button>
+    <h1 id="nombre-receta">Nombre de la receta</h1>
+  </header>
+
+  <main>
+    <section class="receta-detalle">
+      <img id="imagen-receta" src="" alt="Imagen de receta">
+
+      <div class="info">
+        <div class="stats">
+          <div><span>👥</span> <span id="porciones">4</span></div>
+          <div><span>⏱</span> <span id="prep">10 min</span></div>
+          <div><span>🔥</span> <span id="coccion">20 min</span></div>
+        </div>
+
+        <div class="contenido">
+          <div class="bloque">
+            <h2>Ingredientes</h2>
+            <ul id="ingredientes"></ul>
+          </div>
+
+          <div class="bloque">
+            <h2>Instrucciones</h2>
+            <ol id="instrucciones"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

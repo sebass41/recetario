@@ -82,6 +82,7 @@ header nav a:hover {
   gap: 1rem;
   padding: 2rem;
   flex-wrap: wrap;
+  border-bottom: 2px solid #f8bbd0;
 }
 
 .buscador input {
@@ -167,6 +168,12 @@ header nav a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+.card:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0,2) inset;
 }
 
 .card:hover {
@@ -227,4 +234,9 @@ footer {
   .menu-toggle {
     display: flex;
   }
+}
+
+.lista-categorias button.activo {
+  background-color: var(--rosado-oscuro);
+  font-weight: bold;
 }

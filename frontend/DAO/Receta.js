@@ -30,5 +30,12 @@ export default class RecetaDAO {
 
         return await response.json();
     }
+
+    async obtenerIngredientesPorId(recetaId){
+        const url = origin + `/backend/controller/RecetaController.php?fun=i&id=${recetaId}`;
+        const response = await fetch(url);
+
+        return await response.json();
+    }
 }
 

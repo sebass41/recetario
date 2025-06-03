@@ -20,6 +20,9 @@ switch ($funcion){
     case 'deleteRecetas':
         deleteReceta();
         break;
+    case 'i':
+        getIngredientes();
+        break;
 }
 
 function getResetas(){
@@ -41,6 +44,13 @@ function setReceta(){
 
 
     $result = (new RecetaDAO())->setReceta($nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades);
+    echo json_encode($result);
+}
+
+function getIngredientes(){
+    $idReceta = $_GET['id'];
+    
+    $result = (new RecetaDAO())->getIngredientes($idReceta);
     echo json_encode($result);
 }
 
