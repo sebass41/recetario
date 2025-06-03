@@ -1,16 +1,25 @@
-// Archivo: script.js
-
-let slideIndex = 0;
+const slidesContainer = document.querySelector('.slides');
 const slides = document.querySelectorAll('.slide');
+let index = 0;
 
-function showSlides() {
-    slides.forEach((slide, index) => {
-        slide.style.display = index === slideIndex ? 'block' : 'none';
-    });
-    slideIndex = (slideIndex + 1) % slides.length;
+function showSlide(i) {
+    slidesContainer.style.transform = `translateX(-${i * 100}%)`;
 }
 
-setInterval(showSlides, 3000); // Cambia cada 3 segundos
+function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+}
 
-// Mostrar la primera diapositiva inicialmente
-showSlides();
+// Cambiar imagen cada 5 segundos
+setInterval(nextSlide, 5000);
+
+// Mostrar la primera al cargar
+showSlide(index);
+
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+});

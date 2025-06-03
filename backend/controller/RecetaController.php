@@ -8,7 +8,7 @@ $funcion = $_GET['fun']; // Obtiene el parámetro 'fun' de la URL
 
 
 switch ($funcion){
-    case 'getRecetas':
+    case 'o':
         getResetas();
         break;
     case 'a':

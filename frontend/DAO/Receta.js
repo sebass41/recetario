@@ -23,4 +23,12 @@ export default class RecetaDAO {
         let response = await fetch(url, config);
         return await response.json();
     }
+
+    async obtenerTodo(){
+        let url = origin + "/backend/controller/RecetaController.php?fun=o";
+        let response = await fetch(url);
+
+        return await response.json();
+    }
 }
+

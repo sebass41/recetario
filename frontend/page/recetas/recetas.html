@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recetas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recetas</title>
+  <link rel="stylesheet" href="style.css">
+   <script src="script.js" type="module"></script>
 </head>
 <body>
-    
+  <header>
+        <img src="../../assets/icon/receta.png" alt="Imagen_comida">
+        <h1>Recetario</h1>
+
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="../home/index.html">Inicio</a></li>
+                <li><a href="../recetas/recetas.html">Recetas</a></li>
+                <li><a href="">Tips</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <main>
+    <section class="buscador">
+      <input type="text" placeholder="Buscar recetas..." id="buscar">
+      <button type="button">Buscar</button>
+    </section>
+
+    <section class="categorias">
+    <h2>Categorías</h2>
+    <div class="lista-categorias">
+        <button>Postres</button>
+        <button>Salado</button>
+        <button>Vegetariano</button>
+        <button>Rápido</button>
+    </div>
+    </section>
+
+
+    <section class="ultimas">
+      <h2>Últimas Recetas</h2>
+      <div class="recetas-grid" id="recetas">
+        <!-- Cards de las recetas -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Recetario. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
