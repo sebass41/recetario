@@ -38,12 +38,12 @@ function setReceta(){
     $t_coccion = $_POST['tiempoC'];
     $porciones = $_POST['porcion'];
     $instrucciones = $_POST['inst'];
+    $nota = $_POST['nota'];
     $ingredientes = json_decode($_POST['ingr']);
     $cantidades = json_decode($_POST['cant']);
     $unidades = json_decode($_POST['unidades']);
 
-
-    $result = (new RecetaDAO())->setReceta($nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades);
+    $result = (new RecetaDAO())->setReceta($nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades, $nota);
     echo json_encode($result);
 }
 

@@ -53,7 +53,7 @@ function mostrarRecetas(lista) {
   });
 
   // Vuelve a activar los eventos de click
-  activarDetalleReceta();
+  activarDetalleReceta(); 
 }
 
 // Filtrar y mostrar según búsqueda + categoría

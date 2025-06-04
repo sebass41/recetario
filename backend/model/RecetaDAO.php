@@ -26,7 +26,7 @@ class RecetaDAO{
         }
     }
         
-    function setReceta($nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades) {
+    function setReceta($nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades, $nota) {
         try {
             $connection = conection();
 
@@ -35,10 +35,10 @@ class RecetaDAO{
             $extension = pathinfo($nomImg, PATHINFO_EXTENSION);
 
             // Insertar en tabla recetas
-            $sql = "INSERT INTO recetas (nombre, categoría_id, tiempo_preparación, tiempo_cocción, porciones, instrucciones, img) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO recetas (nombre, categoría_id, tiempo_preparación, tiempo_cocción, porciones, instrucciones, img, nota) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $connection->prepare($sql);
-            $stmt->bind_param("siiiiss", $nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $extension);
+            $stmt->bind_param("siiiisss", $nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $extension, $nota);
             $stmt->execute();
 
             // Obtener el ID de la receta insertada

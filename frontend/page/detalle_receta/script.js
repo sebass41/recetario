@@ -52,4 +52,31 @@ document.addEventListener("DOMContentLoaded", async () => {
       setTimeout(() => window.history.back(), 400); // Espera 400ms antes de volver
     });
   }
+
+  // Mostrar la nota si existe
+  const nota = receta.nota?.trim();
+  if (nota) {
+  const popup = document.getElementById("nota-popup");
+  popup.textContent = nota;
+  } else {
+  document.querySelector(".recomendacion-wrapper").style.display = "none";
+  }
+
+  let notaFijada = false;
+  const iconoNota = document.querySelector(".icono-nota");
+  const wrapperNota = document.querySelector(".recomendacion-wrapper");
+  const popup = document.getElementById("nota-popup");
+
+  iconoNota.addEventListener("click", () => {
+    notaFijada = !notaFijada;
+
+    if (notaFijada) {
+      wrapperNota.classList.add("fijada");
+      iconoNota.classList.add("activa");
+    } else {
+      wrapperNota.classList.remove("fijada");
+      iconoNota.classList.remove("activa");
+    }
+  });
+
 });

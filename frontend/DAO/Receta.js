@@ -1,7 +1,7 @@
 import origin from "../config/origin.js";
 
 export default class RecetaDAO {
-    async agregar(nombre, cate, tiempoP, tiempoC, porcion, inst, img, ingredientes, cant, unidades){
+    async agregar(nombre, cate, tiempoP, tiempoC, porcion, inst, img, ingredientes, cant, unidades, nota){
         let formdata = new FormData();
         formdata.append('nombre', nombre);
         formdata.append("cate", cate);
@@ -13,6 +13,7 @@ export default class RecetaDAO {
         formdata.append("ingr", JSON.stringify(ingredientes));
         formdata.append("cant", JSON.stringify(cant));
         formdata.append("unidades", JSON.stringify(unidades));
+        formdata.append("nota", nota);
 
         let url = origin + "/backend/controller/RecetaController.php?fun=a";
         let config = {

@@ -20,6 +20,7 @@ main {
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-in-out;
+  position: relative;
 }
 
 h1 {
@@ -63,14 +64,23 @@ select {
   transition: 0.3s ease;
 }
 
-.porciones{
-    width: 80%;
+.nombrePorcion textarea {
+  padding: 0.7rem;
+  resize: vertical;
 }
 
-.nombrePorcion input:focus, textarea {
+.nombrePorcion input:focus,
+.nombrePorcion textarea:focus {
   border-color: #6666ff;
   outline: none;
   box-shadow: 0 0 5px #aaa;
+}
+
+.porciones {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nombrePorcion .menos,
@@ -87,7 +97,8 @@ select {
 }
 
 .nombrePorcion .menos:hover,
-.nombrePorcion .mas:hover {
+.nombrePorcion .mas:hover,
+#add:hover {
   background-color: #5b21b6;
 }
 
@@ -102,72 +113,81 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 label[for="cate"] {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 1rem;
-    color: #333;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #333;
 }
 
 select#cate {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    color: #333;
-    appearance: none;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px 16px;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  appearance: none;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
 }
 
 select#cate:focus {
-    border-color: #7a57ff;
-    box-shadow: 0 0 0 3px rgba(122, 87, 255, 0.2);
-    background-color: #fff;
+  border-color: #7a57ff;
+  box-shadow: 0 0 0 3px rgba(122, 87, 255, 0.2);
+  background-color: #fff;
 }
 
 /* Foto */
 .file-upload input[type="file"] {
-    display: none;
+  display: none;
 }
 
 .file-upload label img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    transition: border-color 0.3s;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: border-color 0.3s;
 }
 
 .file-upload label img:hover {
-    border-color: #666;
+  border-color: #666;
 }
-
 
 /* Ingredientes */
 .datosIngredientes {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
-.head, .body{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+.head,
+.body {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.body {
+  align-items: center;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .datosIngredientes input {
+  flex: 1;
+  min-width: 80px;
   padding: 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -201,7 +221,25 @@ select#cate:focus {
   filter: brightness(0.8);
 }
 
-/* Botón */
+/* Botón Agregar Ingrediente */
+#add {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #7c3aed;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease, background-color 0.3s;
+}
+
+#add:hover {
+  transform: scale(1.1);
+  background-color: #5b21b6;
+}
+
 input[type="submit"] {
   align-self: center;
   padding: 0.7rem 2rem;
@@ -219,10 +257,7 @@ input[type="submit"]:hover {
   background-color: #059669;
 }
 
-#add{
-    width: 30%;
-}
-/* Animación */
+/* Animaciones */
 @keyframes fadeSlideOut {
   0% {
     opacity: 1;
@@ -243,7 +278,6 @@ input[type="submit"]:hover {
   overflow: hidden;
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -255,13 +289,34 @@ input[type="submit"]:hover {
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .datosReceta {
+/* Responsive solo para ingredientes */
+@media (max-width: 600px) {
+  .head,
+  .body {
     flex-direction: column;
+    align-items: stretch;
   }
 
-  table {
-    font-size: 0.9rem;
+  .datosIngredientes input,
+  .delete-ingr {
+    width: 100%;
   }
+}
+
+/* Botón de volver con cruz */
+.btn-volver {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.btn-volver:hover {
+  transform: rotate(90deg) translateY(10px);
+  color: #333;
 }

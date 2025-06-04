@@ -8,6 +8,7 @@
     <script src="agregar.js" type="module"></script>
 </head>
 <body>
+    <button class="btn-volver" id="exitButton">&times;</button>
     <main>
         <h1>Nueva Receta</h1>
         <form action="" id="formReceta">
@@ -18,18 +19,28 @@
 
                     <label for="porcion">Porciones</label>
                     <div class="porciones">
-                        <button type="button" class="menos">-</button>
+                        <button type="button" class="menos" id="menos">-</button>
                         <input type="number" name="porcion" id="porcion">
-                        <button type="button" class="mas">+</button>
+                        <button type="button" class="mas" id="mas">+</button>
                     </div>
 
                     <label for="cate">Categoría</label>
                     <select name="cate" id="cate">
-                        <option value="1">Entrada</option>
-                        <option value="2">plato Principal</option>
-                        <option value="3">Guarnición</option>
+                        <option value="1">Guarnición</option>
+                        <option value="2">Carne</option>
+                        <option value="3">Pasta</option>
                         <option value="4">Postre</option>
                         <option value="5">Bebida</option>
+                        <option value="6">Rápido</option>
+                        <option value="7">Vegetariano</option>
+                        <option value="8">Vegano</option>
+                        <option value="9">Dulce</option>
+                        <option value="10">Salado</option>
+                        <option value="11">Pescado</option>
+                        <option value="12">Ensalada</option>
+                        <option value="13">Pizza o Pan</option>
+                        <option value="14">Torta</option>
+                        <option value="15">Salsa</option>
                     </select>
 
                     <label for="tiempoP">Tiempo de Preparación</label>
@@ -38,6 +49,9 @@
                     <label for="tiempoC">Tiempo de Cocción</label>
                     <input type="number" name="tiempoC">
 
+                    <label for="nota">Alguna nota o recomendación (opcional)</label>
+                    <textarea name="nota" id="nota"></textarea>
+                    
                     <label for="inst">Instrucciones</label>
                     <textarea name="inst" id="inst"></textarea>
                 </div>
@@ -61,7 +75,7 @@
                 
                 <div class="body">
                     <input type="text" name="ingredientes[]">
-                    <input type="number" name="cant[]">
+                    <input type="text" name="cant[]">
                     <input type="text" name="uM[]">
                     <button type="button" class="delete-ingr" style="display: none;">
                         <img src="../../assets/icon/delete_icon.png" alt="Eliminar Ingrediente" class="img_delete">
