@@ -23,6 +23,9 @@ switch ($funcion){
     case 'i':
         getIngredientes();
         break;
+    case 'bi':
+        buscarPorIngrediente();
+        break;
 }
 
 function getResetas(){
@@ -51,6 +54,13 @@ function getIngredientes(){
     $idReceta = $_GET['id'];
     
     $result = (new RecetaDAO())->getIngredientes($idReceta);
+    echo json_encode($result);
+}
+
+function buscarPorIngrediente(){
+    $ingredientes = $_POST['ingredientes'];
+
+    $result = (new RecetaDAO())->buscarPorIngredientes($ingredientes);
     echo json_encode($result);
 }
 

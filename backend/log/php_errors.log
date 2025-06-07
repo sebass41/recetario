@@ -48,3 +48,34 @@ Stack trace:
   thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 55
 [02-Jun-2025 08:26:54 Europe/Berlin] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 58
 [02-Jun-2025 08:28:43 Europe/Berlin] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 58
+[05-Jun-2025 17:19:51 Europe/Berlin] PHP Warning:  Undefined array key "fun" in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 7
+[05-Jun-2025 17:24:30 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: RecetaDAO::buscarPorIngredientes(): Argument #1 ($ingredientes) must be of type array, string given, called in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 63 and defined in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:113
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(63): RecetaDAO->buscarPorIngredientes('["az\xC3\xBAcar"]')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(27): buscarPorIngrediente()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 113
+[05-Jun-2025 17:25:48 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: RecetaDAO::buscarPorIngredientes(): Argument #1 ($ingredientes) must be of type array, string given, called in C:\xampp\htdocs\recetario\backend\controller\RecetaController.php on line 63 and defined in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:113
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(63): RecetaDAO->buscarPorIngredientes('["Az\xC3\xBAcar"]')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(27): buscarPorIngrediente()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 113
+[05-Jun-2025 17:26:43 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:122
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(63): RecetaDAO->buscarPorIngredientes('["Az\xC3\xBAcar"]')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(27): buscarPorIngrediente()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 122
+[05-Jun-2025 17:28:17 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:122
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(63): RecetaDAO->buscarPorIngredientes('["az\xC3\xBAcar"]')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(27): buscarPorIngrediente()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 122
+[05-Jun-2025 17:35:10 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php:122
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(63): RecetaDAO->buscarPorIngredientes('az\xC3\xBAcar')
+#1 C:\xampp\htdocs\recetario\backend\controller\RecetaController.php(27): buscarPorIngrediente()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\RecetaDAO.php on line 122

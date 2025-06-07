@@ -2,7 +2,7 @@
 :root {
     --rosado-claro: #ffe0eb;
     --rosado-medio: #ff9fcf;
-    --rosado-oscuro: #e75480;
+    --rosado-oscuro: #ffc1e3;
     --blanco: #fff;
     --negro: #333;
 }
@@ -30,8 +30,8 @@ header {
 }
 
 header img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
 }
 
 header h1 {

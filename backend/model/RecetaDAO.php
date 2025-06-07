@@ -76,7 +76,7 @@ class RecetaDAO{
                 }
 
                 // Insertamos la relación con la receta
-                $stmtIng->bind_param("iiis", $receta_id, $ingrediente_id, $cantidad, $unidad);
+                $stmtIng->bind_param("iiss", $receta_id, $ingrediente_id, $cantidad, $unidad);
                 $stmtIng->execute();
             }
 
@@ -106,6 +106,49 @@ class RecetaDAO{
             return new Respuesta(true, $msj, $ingredientes);
         }catch (Exception $e){
             $msj = "Error: ". $e->getMessage();
+            return new Respuesta(false, $msj, []);
+        }
+    }
+
+    function buscarPorIngredientes($ingredientes) {
+        try {
+            $connection = conection();
+
+            $ingredientes = json_decode($_POST['ingredientes'], true);
+            if (empty($ingredientes)) {
+                return new Respuesta(false, "No se proporcionaron ingredientes", []);
+            }
+
+            // Crear placeholders (?, ?, ?) según la cantidad de ingredientes
+            $placeholders = implode(',', array_fill(0, count($ingredientes), '?'));
+
+            $sql = "
+                SELECT r.*
+                FROM recetas r
+                JOIN recetas_ingredientes ri ON r.id = ri.receta_id
+                JOIN ingredientes i ON ri.ingrediente_id = i.id
+                WHERE i.nombre IN ($placeholders)
+                GROUP BY r.id
+                HAVING COUNT(DISTINCT i.nombre) = ?
+            ";
+
+            // Preparar y ejecutar
+            $stmt = $connection->prepare($sql);
+
+            // Crear arreglo con los ingredientes + la cantidad total al final
+            $tipos = str_repeat('s', count($ingredientes)) . 'i'; // 'ssi' por ejemplo
+            $params = [...$ingredientes, count($ingredientes)];
+            $stmt->bind_param($tipos, ...$params);
+
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            $recetas = $resultado->fetch_all(MYSQLI_ASSOC);
+
+            $msj = count($recetas) > 0 ? "Recetas encontradas" : "No se encontraron recetas con esos ingredientes";
+            return new Respuesta(true, $msj, $recetas);
+
+        } catch (Exception $e) {
+            $msj = "Error al buscar recetas por ingredientes: " . $e->getMessage();
             return new Respuesta(false, $msj, []);
         }
     }

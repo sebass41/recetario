@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscar Recetas por Ingredientes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="../../assets/icon/icono_gato.png" alt="Imagen_comida">
+    <h1>Recetario</h1>
+  </header>
+
+  <main>
+    <section class="buscador-seccion">
+      <div class="buscador-wrapper">
+        <input type="text" id="input-ingrediente" placeholder="Buscar ingrediente...">
+        <button id="btn-buscar">Buscar</button>
+      </div>
+      <div id="ingredientes-lista" class="ingredientes-lista"></div>
+    </section>
+
+    <section class="resultados recetas-contenedor" id="resultados">
+      <h2 id="titulo-recetas">Recetas encontradas</h2>
+      <div id="recetas-contenedor" class="recetas-contenedor"></div>
+    </section>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

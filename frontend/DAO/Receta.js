@@ -38,5 +38,19 @@ export default class RecetaDAO {
 
         return await response.json();
     }
+
+    async buscarRecetaPorIngrediente(ingredientes){
+        let formdata = new FormData();
+        formdata.append("ingredientes", JSON.stringify(ingredientes));
+
+        const url = origin + "/backend/controller/RecetaController.php?fun=bi";
+        const config = {
+            method: "POST",
+            body: formdata
+        };
+
+        const response = await fetch(url, config);
+        return await response.json();
+    }
 }
 
