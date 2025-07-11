@@ -3,6 +3,13 @@ let todasLasRecetas = []
 
 window.addEventListener("load", () => {
     configurarBuscador();
+    const btnVolver = document.querySelector(".volver");
+    if (btnVolver) {
+      btnVolver.addEventListener("click", () => {
+        document.body.classList.add("pliegue");
+        setTimeout(() => window.history.back(), 400); // Espera 400ms antes de volver
+      });
+    }
 });
 
 function configurarBuscador() {

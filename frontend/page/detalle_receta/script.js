@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   listaIngredientes.innerHTML = ingredientes.length
     ? ingredientes.map(ing => `<li>${ing.nombre} - ${ing.cantidad} ${ing.unidad}</li>`).join("")
     : "<li>No hay ingredientes disponibles.</li>";
+    const mensajeElement = document.createElement("p");
+    const mensaje = `¿Querés convertir alguna medida? Usá nuestro <a href="../convertidor_medidas/convertidor.html">conversor de medidas</a>.`;
+    mensajeElement.innerHTML = mensaje;
+    listaIngredientes.appendChild(mensajeElement);
 
   // Instrucciones
   const pasosTexto = receta.instrucciones ?? "";
