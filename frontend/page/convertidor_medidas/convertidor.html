@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Medidas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <button class="volver" aria-label="Volver atrás">&#x2B05;</button>
+    <h1>Conversor de Medidas para Recetas</h1>
+  </header>
+
+  <main>
+    <section class="conversor">
+      <img src="../../assets/icon/medidor.png" alt="Medidor de cocina" class="decoracion-img">
+
+      <form action="" id="formConvercion">
+        <div class="formulario">
+          <label for="ingrediente">Ingrediente:</label>
+          <input type="text" id="ingrediente" list="listaIngredientes" name="ingrediente" placeholder="Ej: Harina">
+          <datalist id="listaIngredientes"></datalist>
+          
+          <label for="unidadOrigen">De:</label>
+          <input type="text" id="unidadOrigen" list="listaUnidades" name="unidadOrigen" placeholder="Ej: taza">
+
+          <label for="unidadDestino">A:</label>
+          <input type="text" id="unidadDestino" list="listaUnidades" name="unidadDestino" placeholder="Ej: cucharada">
+          <datalist id="listaUnidades"></datalist>
+
+          <label for="cantidad">Cantidad:</label>
+          <input type="number" id="cantidad" name="cantidad" placeholder="Ej: 200">
+
+          <button type="submit" id="convertir">Convertir</button>
+
+          <div id="resultado"></div>
+        </div>
+      </form>
+
+      <img src="../../assets/icon/tazas.png" alt="Tazas medidoras" class="decoracion-img">
+    </section>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

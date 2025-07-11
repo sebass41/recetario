@@ -72,7 +72,7 @@ function actualizarBotonesEliminar() {
 }
 
 // Envia el formulario con todos los datos de la receta
-function agregarReceta() {
+function agregarReceta() { 
     let formElement = document.querySelector("#formReceta");
 
     formElement.onsubmit = async (e) => {

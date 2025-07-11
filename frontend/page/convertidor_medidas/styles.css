@@ -1,0 +1,110 @@
+ body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffc1e3;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 2px solid #f8bbd0;
+    }
+
+    .volver {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #880e4f;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .volver:hover {
+      transform: translateX(-5px);
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .conversor {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .conversor img {
+        width: 600px;
+        height: auto;
+    }
+    .formulario {
+      background-color: #ffe4ec;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .formulario label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .formulario input,
+    .formulario select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.3rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button#convertir {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      background-color: #f06292;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button#convertir:hover {
+      background-color: #ec407a;
+    }
+
+    #resultado {
+      margin-top: 1.5rem;
+      background-color: #fff0f5;
+      border: 2px dashed #f06292;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      color: #ad1457;
+    }
+
+    .decoracion-img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .conversor {
+        flex-direction: column;
+      }
+    }

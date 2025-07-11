@@ -1,0 +1,147 @@
+{
+  "harina": {
+    "densidad_g_ml": 0.53,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.53,
+      "litro": 530,
+      "taza": 120,
+      "cucharada": 7.5,
+      "cucharadita": 2.5
+    }
+  },
+  "azúcar": {
+    "densidad_g_ml": 0.85,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.85,
+      "litro": 850,
+      "taza": 200,
+      "cucharada": 12.5,
+      "cucharadita": 4.2
+    }
+  },
+  "manteca": {
+    "densidad_g_ml": 0.911,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.911,
+      "litro": 911,
+      "taza": 227,
+      "cucharada": 14.2,
+      "cucharadita": 4.7
+    }
+  },
+  "agua": {
+    "densidad_g_ml": 1,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 1,
+      "litro": 1000,
+      "taza": 236.6,
+      "cucharada": 14.8,
+      "cucharadita": 4.9
+    }
+  },
+  "leche": {
+    "densidad_g_ml": 1.03,
+    "equivalencias": {
+      "gramo": 1.03,
+      "kilogramo": 1030,
+      "mililitro": 1.03,
+      "litro": 1030,
+      "taza": 245,
+      "cucharada": 15.3,
+      "cucharadita": 5.1
+    }
+  },
+  "aceite": {
+    "densidad_g_ml": 0.92,
+    "equivalencias": {
+      "gramo": 0.92,
+      "kilogramo": 920,
+      "mililitro": 0.92,
+      "litro": 920,
+      "taza": 218,
+      "cucharada": 13.5,
+      "cucharadita": 4.5
+    }
+  },
+  "miel": {
+    "densidad_g_ml": 1.42,
+    "equivalencias": {
+      "gramo": 1.42,
+      "kilogramo": 1420,
+      "mililitro": 1.42,
+      "litro": 1420,
+      "taza": 340,
+      "cucharada": 21.3,
+      "cucharadita": 7.1
+    }
+  },
+  "arroz": {
+    "densidad_g_ml": 0.85,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.85,
+      "litro": 850,
+      "taza": 195,
+      "cucharada": 12,
+      "cucharadita": 4
+    }
+  },
+ "cacao": {
+    "densidad_g_ml": 0.43,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.43,
+      "litro": 430,
+      "taza": 85,
+      "cucharada": 5,
+      "cucharadita": 1.7
+    }
+  },
+  "coco rallado": {
+    "densidad_g_ml": 0.3,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.3,
+      "litro": 300,
+      "taza": 90,
+      "cucharada": 6,
+      "cucharadita": 2
+    }
+  },
+  "avena": {
+    "densidad_g_ml": 0.38,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 0.38,
+      "litro": 380,
+      "taza": 80,
+      "cucharada": 5.5,
+      "cucharadita": 1.8
+    }
+  },
+  "banana": {
+    "densidad_g_ml": 1.09,
+    "equivalencias": {
+      "gramo": 1,
+      "kilogramo": 1000,
+      "mililitro": 1.09,
+      "litro": 1090,
+      "taza": 225,
+      "cucharada": 14.5,
+      "cucharadita": 4.8
+    }
+  }
+
+}
