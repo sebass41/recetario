@@ -86,3 +86,41 @@ body {
         opacity: 1;
       }
     }
+    main > a img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+main > a img:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+main > a img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+main > a img:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+
+/* 📱 Responsive para pantallas pequeñas */
+@media (max-width: 480px) {
+  main > a img {
+    top: 15px;
+    left: 15px;
+    width: 40px;
+  }
+}

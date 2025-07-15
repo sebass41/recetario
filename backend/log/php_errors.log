@@ -119,3 +119,42 @@ Stack trace:
 [15-Jul-2025 14:55:24 Europe/Berlin] Payload recibido: {"iss":"https:\/\/accounts.google.com","azp":"748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com","aud":"748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com","sub":"104126278649236277718","email":"s.s.dible@gmail.com","email_verified":"true","nbf":"1752583823","name":"Sebastian","picture":"https:\/\/lh3.googleusercontent.com\/a\/ACg8ocLjbllg1GVUAC8zmq_3pNQFqVIdZeSAupxXKCUM4_NJTTbnVf6j=s96-c","given_name":"Sebastian","iat":"1752584123","exp":"1752587723","jti":"5fb0b61e58be0e5359b4e3310c3d06b9c971a5b6","alg":"RS256","kid":"f1033860716e3a2aab380f00dbe39a7114846ba1","typ":"JWT"}
 [15-Jul-2025 14:55:24 Europe/Berlin] AUD esperado: 748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com
 [15-Jul-2025 14:55:24 Europe/Berlin] AUD recibido: 748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com
+[15-Jul-2025 15:17:21 Europe/Berlin] Payload recibido: {"iss":"https:\/\/accounts.google.com","azp":"748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com","aud":"748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com","sub":"104126278649236277718","email":"s.s.dible@gmail.com","email_verified":"true","nbf":"1752585140","name":"Sebastian","picture":"https:\/\/lh3.googleusercontent.com\/a\/ACg8ocLjbllg1GVUAC8zmq_3pNQFqVIdZeSAupxXKCUM4_NJTTbnVf6j=s96-c","given_name":"Sebastian","iat":"1752585440","exp":"1752589040","jti":"05c66d6af759479c5b0a5b789913d6ea18f5515f","alg":"RS256","kid":"f1033860716e3a2aab380f00dbe39a7114846ba1","typ":"JWT"}
+[15-Jul-2025 15:17:21 Europe/Berlin] AUD esperado: 748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com
+[15-Jul-2025 15:17:21 Europe/Berlin] AUD recibido: 748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com
+[15-Jul-2025 16:58:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CuentaDAO" not found in C:\xampp\htdocs\recetario\backend\controller\SesionController.php:52
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\SesionController.php(12): iniciarSesionGoogle()
+#1 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\controller\SesionController.php on line 52
+[15-Jul-2025 16:59:58 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 16:59:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php:18
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(25): CuentaDAO->setCuenta('juan', 'juan@gmail.com', 'juan')
+#1 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(9): crearCuenta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:02:53 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:02:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php:18
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(25): CuentaDAO->setCuenta('juan', 'juan@gmail.com', 'juan')
+#1 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(9): crearCuenta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:03:10 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:03:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php:18
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(25): CuentaDAO->setCuenta('llo', 'santibogli115@g...', '123')
+#1 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(9): crearCuenta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:08:00 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:08:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php:18
+Stack trace:
+#0 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(25): CuentaDAO->setCuenta('Julio', 'julio@gmil.com', '123')
+#1 C:\xampp\htdocs\recetario\backend\controller\CuentaController.php(9): crearCuenta()
+#2 {main}
+  thrown in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:10:18 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:10:34 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
+[15-Jul-2025 17:11:36 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79

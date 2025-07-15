@@ -144,3 +144,100 @@ body {
       animation: saltito 1s ease forwards;
       opacity: 1;
     }
+
+    .google-login {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.registro-info {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #880e4f;
+}
+
+.registro-info a {
+  color: #ec407a;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 0.3rem;
+}
+
+.registro-info a:hover {
+  text-decoration: underline;
+}
+
+.registro-info a {
+  color: #ec407a;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 0.3rem;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.registro-info a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #ec407a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.registro-info a:hover {
+  color: #ad1457;
+  transform: translateY(-2px);
+}
+
+.registro-info a:hover::after {
+  transform: scaleX(1);
+}
+
+main > a img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+main > a img:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+main > a img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+main > a img:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* 📱 Responsive para pantallas pequeñas */
+@media (max-width: 480px) {
+  main > a img {
+    top: 15px;
+    left: 15px;
+    width: 40px;
+  }
+}

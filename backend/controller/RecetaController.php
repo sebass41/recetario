@@ -34,6 +34,10 @@ function getResetas(){
 } 
 
 function setReceta(){
+    if (!isset($_SESSION['usuario'])) {
+        echo json_encode(new Respuesta(false, "Usuario no autenticado", null));
+        return;
+    }
     $nombre = $_POST['nombre'];
     $img = $_FILES['img'];
     $categoria = $_POST['cate'];

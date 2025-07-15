@@ -5,7 +5,7 @@ function handleCredentialResponse(response) {
           console.log("Token JWT recibido:", token);
 
           // Enviamos el token al servidor para validación (usando fetch)
-          fetch("/recetario/backend/controller/cuentaController.php?fun=iniciarSesionGoogle", {
+          fetch("/recetario/backend/controller/SesionController.php?fun=iniciarSesionGoogle", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: response.credential })
@@ -18,7 +18,7 @@ function handleCredentialResponse(response) {
                 mensaje.classList.add("salto-alegre");
               setTimeout(() => {
                 window.location.href = "../home";
-              }, 5000);
+              }, 3000);
             } else {
               alert("Error al iniciar sesión con Google 😿");
               console.log(data.sucess);

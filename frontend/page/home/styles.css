@@ -19,34 +19,69 @@ body {
     color: var(--negro);
 }
 
-/* HEADER */
+/* HEADER GENERAL */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--rosado-oscuro);
-    color: var(--blanco);
-    padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--rosado-oscuro);
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
 }
 
 header img {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 header h1 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
+/* NAV UL */
 header nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
+/* NAV LINK */
 header nav a {
-    color: var(--blanco);
-    text-decoration: none;
+  color: var(--blanco);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ESTILO PARA USUARIO */
+header nav a.usuario {
+  flex-direction: column;
+  font-size: 0.85rem;
+}
+
+header nav a.usuario img {
+  width: 32px;
+  height: 32px;
+}
+
+/* RESPONSIVE HEADER (opcional si usás hamburguesa) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 }
 
 /* CARRUSEL */

@@ -31,14 +31,7 @@ $payload = json_decode($response, true);
 if (isset($payload['email'], $payload['name']) && $payload['aud'] === '748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com') {
   $email = $payload['email'];
   $nombre = $payload['name'];
-
-  // Acá podés conectarte a la base de datos y buscar al usuario
-  // Si no existe, lo insertás. Luego, iniciás sesión.
   
-  // Ejemplo simple
-  session_start();
-  $_SESSION['usuario'] = $nombre;
-
   echo json_encode(['exito' => true]);
 } else {
   echo json_encode(['exito' => false, 'error' => 'Token inválido']);

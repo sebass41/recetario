@@ -11,6 +11,9 @@
 </head>
 <body>
   <main>
+    <a href="../home/">
+      <img src="../../assets/icon/gato-atrás.png" alt="Gato Volver Atrás">
+    </a>
     <div class="login-wrapper">
       <div class="cabecera">
         <img src="../../assets/icon/gato_login.png" alt="Gato amigable">
@@ -30,23 +33,27 @@
         </div>
 
         <button type="submit">Iniciar sesión</button>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <div class="google-login">
+          <div id="g_id_onload"
+              data-client_id="748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com"
+              data-callback="handleCredentialResponse"
+              data-auto_prompt="false">
+          </div>
+  
+          <div class="g_id_signin"
+              data-type="standard"
+              data-size="large"
+              data-theme="outline"
+              data-text="sign_in_with"
+              data-shape="rectangular"
+              data-logo_alignment="left">
+          </div>
+        </div>
+        <div class="registro-info">
+        ¿No tenés una cuenta? <a href="../registro/registro.html">Registrate acá</a>
+      </div>
       </form>
-      <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-      <div id="g_id_onload"
-          data-client_id="748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com"
-          data-callback="handleCredentialResponse"
-          data-auto_prompt="false">
-      </div>
-
-      <div class="g_id_signin"
-          data-type="standard"
-          data-size="large"
-          data-theme="outline"
-          data-text="sign_in_with"
-          data-shape="rectangular"
-          data-logo_alignment="left">
-      </div>
       <div class="mensaje-bienvenida" id="mensajeLogin" style="display: none;">
         ¡Inicio de sesión exitoso! ✨ <br> Bienvenido a tu recetario.
       </div>
