@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome para los íconos de gatos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <div class="login-wrapper">
+      <div class="cabecera">
+        <img src="../../assets/icon/gato_login.png" alt="Gato amigable">
+        <h1>¡Hola de nuevo!</h1>
+      </div>
+
+      <form id="formLogin">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="contraseña">Contraseña</label>
+        <div class="password-wrapper">
+          <input type="password" id="contraseña" name="contraseña" required>
+          <button type="button" class="toggle-pass" id="togglePass">
+            <img src="../../assets/icon/gato-tapado.png" alt="Mostrar contraseña" id="iconGato">
+          </button>
+        </div>
+
+        <button type="submit">Iniciar sesión</button>
+      </form>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+      <div id="g_id_onload"
+          data-client_id="748112355474-bc7asvpdqnn7bc2fmlle5and4gt82l6p.apps.googleusercontent.com"
+          data-callback="handleCredentialResponse"
+          data-auto_prompt="false">
+      </div>
+
+      <div class="g_id_signin"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left">
+      </div>
+      <div class="mensaje-bienvenida" id="mensajeLogin" style="display: none;">
+        ¡Inicio de sesión exitoso! ✨ <br> Bienvenido a tu recetario.
+      </div>
+    </div>
+  </main>
+  
+  <script src="animaciones.js"></script>
+  <script src="script.js" type="module"></script>
+  <script src="google-login.js"></script>
+</body>
+</html>
