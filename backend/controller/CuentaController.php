@@ -8,12 +8,6 @@ switch ($funcion) {
     case 'crearCuenta':
         crearCuenta();
         break;
-    case 'iniciarSesion':
-        iniciarSesion();
-        break;
-    case 'iniciarSesionGoogle':
-        iniciarSesionGoogle();
-        break;
 }
 
 function crearCuenta() {

@@ -158,3 +158,7 @@ Stack trace:
 [15-Jul-2025 17:10:18 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
 [15-Jul-2025 17:10:34 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\recetario\backend\model\CuentaDAO.php on line 18
 [15-Jul-2025 17:11:36 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79
+[15-Jul-2025 17:16:48 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79
+[15-Jul-2025 17:18:42 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79
+[15-Jul-2025 17:19:15 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79
+[15-Jul-2025 17:20:06 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79

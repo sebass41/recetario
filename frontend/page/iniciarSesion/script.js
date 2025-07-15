@@ -1,26 +1,28 @@
-import CuentaDAO from "../../DAO/Cuenta.js";
+import SesionDAO from "../../DAO/Sesion.js";
+
+iniciarSesion();
 
 async function iniciarSesion() {
   let formElement = document.getElementById("formLogin");
 
   formElement.onsubmit = async (e) => {
     e.preventDefault();
-    const mensaje = document.getElementById("mensajeFinal");
+    const mensaje = document.getElementById("mensajeLogin");
     let formData = new FormData(formElement);
 
     let email = formData.get("email");
     let contraseña = formData.get("contraseña");
 
-    let cuentaDAO = new CuentaDAO();
-    let resultado = await cuentaDAO.iniciarSesion(email, contraseña);
+    let sesionDAO = new SesionDAO();
+    let resultado = await sesionDAO.iniciarSesion(email, contraseña);
 
     if (resultado.sucess) {
       formElement.style.display = "none";
       mensaje.style.display = "block";
-      mensaje.classList.add("fadeIn");
+      mensaje.classList.add("salto-alegre");
       setTimeout(() => {
         window.location.href = "../home";
-      }, 5000);
+      }, 3000);
     } else {
       alert("Error al iniciar sesión: " + resultado.msj);
     }

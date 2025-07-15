@@ -23,3 +23,17 @@ const nav = document.querySelector('nav');
 menuToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
 });
+
+fetch("/recetario/backend/controller/usuario.php")
+  .then(res => res.json())
+  .then(data => {
+    if (data.logueado) {
+        const linkUsuario = document.getElementById("linkUsuario");
+        document.getElementById("btnLogin").style.display = "none";
+        document.getElementById("nombreUsuario").textContent = data.nombre;
+        document.getElementById("bienvenida").style.display = "inline";
+
+        linkUsuario.href = "../perfil/perfil.html";
+    }
+  });
+

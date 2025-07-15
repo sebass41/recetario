@@ -1,6 +1,16 @@
 import RecetaDAO from "../../DAO/Receta.js";
 
 window.addEventListener("load", () => {
+    // Verifica si el usuario está logueado
+    fetch("/recetario/backend/controller/usuario.php")
+    .then(res => res.json())
+    .then(data => {
+        if (!data.logueado) {
+        alert("Tenés que iniciar sesión para agregar una receta 😿");
+        window.location.href = "/recetario/frontend/page/iniciarSesion/iniciarSesion.html";
+        }
+    });
+
     agregarReceta();
     actualizarBotonesEliminar();
     
