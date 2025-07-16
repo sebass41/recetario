@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
     .then(data => {
         if (!data.logueado) {
         alert("Tenés que iniciar sesión para agregar una receta 😿");
-        window.location.href = "/recetario/frontend/page/iniciarSesion/iniciarSesion.html";
+        window.location.href = "/recetario/frontend/page/iniciarSesion/inicioSesion.html";
         }
     });
 

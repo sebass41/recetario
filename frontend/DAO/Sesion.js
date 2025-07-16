@@ -18,7 +18,7 @@ export default class SesionDAO {
 
 
     async cerrarSesion() {
-        const response = await fetch(`${origin}/controller/SesionController.php?fun=cerrarSesion`, {
+        const response = await fetch(`${origin}/backend/controller/SesionController.php?fun=cerrarSesion`, {
             method: "POST"
         });
 

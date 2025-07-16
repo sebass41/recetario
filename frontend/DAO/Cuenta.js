@@ -17,5 +17,13 @@ export default class CuentaDAO {
         return await response.json();
     }
 
-    
+    async obtenerUsuario() {
+        let url = origin + "/backend/controller/CuentaController.php?fun=getUsr";
+        let config = {
+            method: 'GET'
+        };
+
+        let response = await fetch(url, config);
+        return await response.json();
+    }
 }

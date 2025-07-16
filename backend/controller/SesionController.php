@@ -59,7 +59,8 @@ function iniciarSesionGoogle() {
 }
 
 function cerrarSesion() {
-    session_unset();
-    session_destroy();
-    echo json_encode(new Respuesta(true, "Sesión cerrada correctamente", null));
+    $sesionDAO = new SesionDAO();
+    $respuesta = $sesionDAO->cerrarSesion();
+    
+    echo json_encode($respuesta);
 }

@@ -27,5 +27,45 @@ class CuentaDAO {
             return new Respuesta(false, "Error al crear la cuenta: " . $e->getMessage(), null);
         }
     }
+
+    function getCuenta(){
+        try {
+            $connection = conection();
+            $sql = "SELECT * FROM usuarios";
+            $result = $connection->query($sql);
+
+            if ($result->num_rows > 0) {
+                $cuentas = [];
+                while ($row = $result->fetch_assoc()) {
+                    $cuentas[] = $row;
+                }
+                return new Respuesta(true, "Cuentas obtenidas correctamente", $cuentas);
+            } else {
+                return new Respuesta(false, "No se encontraron cuentas", null);
+            }
+        } catch (Exception $e) {
+            return new Respuesta(false, "Error al obtener las cuentas: " . $e->getMessage(), null);
+        }
+    }
+
+    function getUser($id_usr){
+        try {
+            $connection = conection();
+            $sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("i", $id_usr);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+                return new Respuesta(true, "Usuario obtenido correctamente", $user);
+            } else {
+                return new Respuesta(false, "No se encontró el usuario", null);
+            }
+        } catch (Exception $e) {
+            return new Respuesta(false, "Error al obtener el usuario: " . $e->getMessage(), null);
+        }
+    }
 }
 ?>
