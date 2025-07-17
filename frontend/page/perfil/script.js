@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Foto de perfil con fallback
   const fotoPerfil = document.getElementById("fotoPerfil");
-  fotoPerfil.src = usuario.img?.trim() ? usuario.img : "../../assets/icon/gato_login.png";
+ fotoPerfil.src = usuario.img?.trim()
+  ? `../../../backend/img/usuarios/${usuario.img}`
+  : "../../assets/icon/gato_login.png";
   fotoPerfil.alt = "Foto de perfil del usuario";
 
   // Cargar recetas o mostrar mensaje

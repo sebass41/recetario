@@ -165,3 +165,12 @@ Stack trace:
 [16-Jul-2025 14:27:04 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\recetario\backend\controller\CuentaController.php on line 28
 [16-Jul-2025 14:27:26 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79
 [16-Jul-2025 14:44:29 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 87
+[16-Jul-2025 14:51:01 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 79
+[16-Jul-2025 15:02:44 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 108
+[16-Jul-2025 15:02:55 Europe/Berlin] PHP Warning:  file_put_contents(../uploads/perfiles/4.jpg): Failed to open stream: No such file or directory in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 78
+[16-Jul-2025 15:10:35 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 100
+[16-Jul-2025 15:27:07 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 107
+[16-Jul-2025 15:27:19 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 99
+[16-Jul-2025 15:29:24 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 107
+[16-Jul-2025 15:29:30 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 99
+[16-Jul-2025 15:31:56 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 107

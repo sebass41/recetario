@@ -48,9 +48,10 @@ function iniciarSesionGoogle() {
     if (isset($payload['email'], $payload['name']) && $payload['aud'] === $clientEsperado) {
         $nombre = $payload['name'];
         $email = $payload['email'];
+        $img = $payload['picture'];
 
         $sesionDAO = new SesionDAO();
-        $respuesta = $sesionDAO->iniciarSesionGoogle($nombre, $email);
+        $respuesta = $sesionDAO->iniciarSesionGoogle($nombre, $email, $img);
 
         echo json_encode($respuesta);
     } else {
