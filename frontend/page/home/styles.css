@@ -1,25 +1,24 @@
-/* Paleta rosa */
 :root {
-    --rosado-claro: #ffe0eb;
-    --rosado-medio: #ff9fcf;
-    --rosado-oscuro: #ffc1e3;
-    --blanco: #fff;
-    --negro: #333;
+  --rosado-claro: #ffe0eb;
+  --rosado-medio: #ff9fcf;
+  --rosado-oscuro: #ffc1e3;
+  --blanco: #fff;
+  --negro: #333;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Segoe UI", sans-serif;
-    background-color: var(--rosado-claro);
-    color: var(--negro);
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--rosado-claro);
+  color: var(--negro);
 }
 
-/* HEADER GENERAL */
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -28,6 +27,7 @@ header {
   color: var(--blanco);
   padding: 1rem 2rem;
   flex-wrap: wrap;
+  position: relative;
 }
 
 header img {
@@ -37,227 +37,227 @@ header img {
 
 header h1 {
   font-size: 1.8rem;
+  flex: 1;
 }
 
-/* NAV UL */
-header nav ul {
+nav ul {
   display: flex;
-  align-items: center;
   list-style: none;
   gap: 1.5rem;
-  margin: 0;
-  padding: 0;
 }
 
-/* NAV LINK */
-header nav a {
+nav a {
   color: var(--blanco);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1rem;
 }
 
-/* ESTILO PARA USUARIO */
-header nav a.usuario {
-  flex-direction: column;
-  font-size: 0.85rem;
-}
-
-header nav a.usuario img {
+/* Usuario */
+nav a img {
   width: 32px;
   height: 32px;
 }
 
-/* RESPONSIVE HEADER (opcional si usás hamburguesa) */
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  background-color: var(--blanco);
+  border-radius: 2px;
+}
+
+/* RESPONSIVE NAV */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
+  .menu-toggle {
+    display: flex;
+  }
+  
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--rosado-oscuro);
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+    z-index: 100;
   }
 
-  header nav ul {
+    nav {
+    transform: translateY(-200%);
+  }
+
+  nav.open {
+    transform: translateY(0);
+  }
+
+  nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  nav ul {
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  display: none; /* Oculto por defecto */
+}
+
+nav ul.active {
+  display: flex; /* Se muestra cuando tiene la clase */
+}
+
+
+nav ul:not(.active) {
+    display: none;
   }
 }
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  background-color: var(--blanco);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 
 /* CARRUSEL */
 .carrusel {
-    position: relative;
-    height: calc(100vh - 80px); /* menos el header */
-    overflow: hidden;
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
 }
 
 .slides {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s ease;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
 }
 
 .slide {
-    min-width: 100%;
-    height: 100%;
-    object-fit: cover;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* H2 sobrepuesto */
 .carrusel h2 {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--blanco);
-    font-size: 3rem;
-    text-shadow: 2px 2px 5px var(--negro);
-    z-index: 2;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--blanco);
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px var(--negro);
+  z-index: 2;
+  text-align: center;
 }
 
-/* Globo con párrafo e imagen */
 .carrusel > div:nth-of-type(2) {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 30px;
-    padding: 1rem 2rem;
-    max-width: 600px;
-    width: 80%;
-    z-index: 2;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    text-align: center;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  max-width: 600px;
+  width: 90%;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .carrusel > div:nth-of-type(2) p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .carrusel > div:nth-of-type(2) img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
-/* Animación al pasar el mouse sobre el globo */
 .carrusel > div:nth-of-type(2):hover {
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animación para la lupa dentro del globo */
 .carrusel > div:nth-of-type(2):hover img {
-    transform: rotate(10deg) scale(1.1);
-    transition: transform 0.4s ease;
+  transform: rotate(10deg) scale(1.1);
+  transition: transform 0.4s ease;
 }
 
 /* FOOTER */
 footer {
-    text-align: center;
-    background-color: var(--rosado-medio);
-    color: var(--blanco);
-    padding: 1rem;
+  text-align: center;
+  background-color: var(--rosado-medio);
+  color: var(--blanco);
+  padding: 1rem;
 }
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .carrusel h2 {
+    font-size: 2rem;
+    top: 12%;
+  }
 
-    header nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-    }
+  .carrusel > div:nth-of-type(2) {
+    padding: 1rem;
+    border-radius: 20px;
+  }
 
-    .carrusel h2 {
-        font-size: 2rem;
-    }
+  .carrusel > div:nth-of-type(2) p {
+    font-size: 1rem;
+  }
 
-    .carrusel > div:nth-of-type(2) p {
-        font-size: 1rem;
-    }
-
-    .carrusel > div:nth-of-type(2) img {
-        width: 40px;
-        height: 40px;
-    }
+  .carrusel > div:nth-of-type(2) img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 480px) {
-    .carrusel h2 {
-        font-size: 1.5rem;
-        top: 10%;
-    }
+  header h1 {
+    font-size: 1.5rem;
+  }
 
-    .carrusel > div:nth-of-type(2) {
-        padding: 1rem;
-        border-radius: 20px;
-    }
+  .carrusel h2 {
+    font-size: 1.5rem;
+    top: 10%;
+  }
 
-    .carrusel > div:nth-of-type(2) p {
-        font-size: 0.95rem;
-    }
-}
-
-/* Botón hamburguesa */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 100;
-}
-
-.menu-toggle span {
-    display: block;
-    height: 4px;
-    background-color: var(--blanco);
-    border-radius: 2px;
-}
-
-/* Estilos responsive para el menú */
-@media (max-width: 768px) {
-    header {
-        position: relative;
-    }
-
-    .menu-toggle {
-        display: flex;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-    }
-
-    nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: var(--rosado-oscuro);
-        width: 100%;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
-        z-index: 99;
-    }
-
-    nav.open {
-        transform: translateY(0);
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-        gap: 1rem;
-    }
+  .carrusel > div:nth-of-type(2) p {
+    font-size: 0.95rem;
+  }
 }

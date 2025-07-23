@@ -204,3 +204,9 @@ h3 {
     height: 100px;
   }
 }
+
+.perfil-usuario img:hover {
+  box-shadow: 0 0 12px #f48fb1;
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

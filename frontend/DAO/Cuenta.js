@@ -26,4 +26,18 @@ export default class CuentaDAO {
         let response = await fetch(url, config);
         return await response.json();
     }
+
+    async cambiarImagen(imagen){
+        let formdata = new FormData();
+        formdata.append("imagen", imagen);
+
+        let url = origin + "/backend/controller/CuentaController.php?fun=cambiarImagen";
+        let config = {
+            method: 'POST',
+            body: formdata
+        };
+
+        let response = await fetch(url, config);
+        return await response.json();
+    }
 }

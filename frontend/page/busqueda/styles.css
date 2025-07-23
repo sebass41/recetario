@@ -241,3 +241,55 @@ main {
     transform: translateY(0);
   }
 }
+
+/* ------------------------------
+   RESPONSIVE DESIGN PARA MÓVILES
+--------------------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  header img {
+    width: 70px;
+  }
+
+  .buscador-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #input-ingrediente,
+  #btn-buscar {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+
+  .ingredientes-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .recetas-contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .buscador-wrapper.mini {
+    margin-top: -100px; /* ajustado para móviles */
+  }
+
+  .card img {
+    height: 160px;
+  }
+}

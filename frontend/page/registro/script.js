@@ -12,6 +12,17 @@ async function crearCuenta() {
     let nombre = formData.get("nombre");
     let email = formData.get("email");
     let contraseña = formData.get("contraseña");
+    let confirmacion = formData.get("confirmar-contraseña");
+
+    if (contraseña !== confirmacion) {
+      alert("Las contraseñas no coinciden.");
+      return;
+    }
+
+    if (!contraseñaSegura(contraseña)) {
+      alert("La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número.");
+      return;
+    }
 
     let cuentaDAO = new CuentaDAO();
     let resultado = await cuentaDAO.crearCuenta(nombre, email, contraseña);
@@ -24,4 +35,9 @@ async function crearCuenta() {
       alert("Error al crear la cuenta: " + resultado.msj);
     }
   };
+}
+
+function contraseñaSegura(contraseña) {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  return regex.test(contraseña);
 }

@@ -67,5 +67,23 @@ class CuentaDAO {
             return new Respuesta(false, "Error al obtener el usuario: " . $e->getMessage(), null);
         }
     }
+
+    function actualizarImagenUsuario($id_usr, $img) {
+        try {
+            $connection = conection();
+            $sql = "UPDATE usuarios SET img = ? WHERE id_usuario = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("si", $img, $id_usr);
+            $stmt->execute();
+
+            if ($stmt->affected_rows > 0) {
+                return new Respuesta(true, "Imagen de usuario actualizada correctamente", null);
+            } else {
+                return new Respuesta(false, "Error al actualizar la imagen de usuario", null);
+            }
+        } catch (Exception $e) {
+            return new Respuesta(false, "Error al actualizar la imagen de usuario: " . $e->getMessage(), null);
+        }
+    }
 }
 ?>

@@ -26,6 +26,9 @@ switch ($funcion){
     case 'bi':
         buscarPorIngrediente();
         break;
+    case 'ou':
+        obtenerRecetasUsuario();
+        break;
 }
 
 function getResetas(){
@@ -38,6 +41,8 @@ function setReceta(){
         echo json_encode(new Respuesta(false, "Usuario no autenticado", null));
         return;
     }
+    $id_usr = $_SESSION['id'];
+
     $nombre = $_POST['nombre'];
     $img = $_FILES['img'];
     $categoria = $_POST['cate'];
@@ -50,7 +55,7 @@ function setReceta(){
     $cantidades = json_decode($_POST['cant']);
     $unidades = json_decode($_POST['unidades']);
 
-    $result = (new RecetaDAO())->setReceta($nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades, $nota);
+    $result = (new RecetaDAO())->setReceta($nombre, $categoria, $t_preparacion, $t_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades, $nota, $id_usr);
     echo json_encode($result);
 }
 
@@ -86,6 +91,17 @@ function deleteReceta(){
     $id = $_POST['id'];
     
     $result = (new RecetaDAO())->deleteReceta($id);
+    echo json_encode($result);
+}
+
+function obtenerRecetasUsuario() {
+    if (!isset($_SESSION['usuario'])) {
+        echo json_encode(new Respuesta(false, "Usuario no autenticado", null));
+        return;
+    }
+    $id_usr = $_SESSION['id'];
+
+    $result = (new RecetaDAO())->getRecetasPorUsuario($id_usr);
     echo json_encode($result);
 }
 ?>

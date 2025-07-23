@@ -38,62 +38,66 @@ class SesionDAO {
     }
 
     public function iniciarSesionGoogle($nombre, $email, $imgUrl) {
-    try {
-        $connection = conection();
+        try {
+            $connection = conection();
 
-        // Buscar si ya existe
-        $sqlBuscar = "SELECT * FROM usuarios WHERE email = ?";
-        $stmtBuscar = $connection->prepare($sqlBuscar);
-        $stmtBuscar->bind_param("s", $email);
-        $stmtBuscar->execute();
-        $result = $stmtBuscar->get_result();
-
-        if ($result->num_rows > 0) {
-            $usuario = $result->fetch_assoc();
-        } else {
-            // Insertar nuevo usuario sin contraseña
-            $sqlInsert = "INSERT INTO usuarios (nombre, email, origen) VALUES (?, ?, 'google')";
-            $stmtInsert = $connection->prepare($sqlInsert);
-            $stmtInsert->bind_param("ss", $nombre, $email);
-            $stmtInsert->execute();
-
-            if ($stmtInsert->affected_rows === 0) {
-                return new Respuesta(false, "No se pudo crear el usuario", null);
-            }
-
-            // Buscar el usuario recién creado
+            // Buscar si ya existe
+            $sqlBuscar = "SELECT * FROM usuarios WHERE email = ?";
+            $stmtBuscar = $connection->prepare($sqlBuscar);
+            $stmtBuscar->bind_param("s", $email);
             $stmtBuscar->execute();
             $result = $stmtBuscar->get_result();
-            $usuario = $result->fetch_assoc();
+
+            $esNuevo = false;
+
+            if ($result->num_rows > 0) {
+                $usuario = $result->fetch_assoc();
+            } else {
+                // Insertar nuevo usuario sin contraseña
+                $sqlInsert = "INSERT INTO usuarios (nombre, email, origen) VALUES (?, ?, 'google')";
+                $stmtInsert = $connection->prepare($sqlInsert);
+                $stmtInsert->bind_param("ss", $nombre, $email);
+                $stmtInsert->execute();
+
+                if ($stmtInsert->affected_rows === 0) {
+                    return new Respuesta(false, "No se pudo crear el usuario", null);
+                }
+
+                $esNuevo = true;
+
+                // Buscar el usuario recién creado
+                $stmtBuscar->execute();
+                $result = $stmtBuscar->get_result();
+                $usuario = $result->fetch_assoc();
+            }
+
+            // 🖼️ Solo guardar imagen si es nuevo
+            if ($esNuevo) {
+                $idUsuario = $usuario['id_usuario'];
+                $nombreArchivo = $idUsuario . ".jpg";
+                $rutaDestino = "../img/usuarios/" . $nombreArchivo;
+
+                $contenido = file_get_contents($imgUrl);
+                if ($contenido !== false) {
+                    file_put_contents($rutaDestino, $contenido);
+
+                    // Actualizar ruta en la base de datos
+                    $sqlUpdateImg = "UPDATE usuarios SET img = ? WHERE id_usuario = ?";
+                    $stmtUpdate = $connection->prepare($sqlUpdateImg);
+                    $stmtUpdate->bind_param("si", $nombreArchivo, $idUsuario);
+                    $stmtUpdate->execute();
+
+                    $usuario['img'] = $nombreArchivo;
+                }
+            }
+
+            $this->guardarSesion($usuario);
+            return new Respuesta(true, "Inicio de sesión con Google exitoso", $usuario);
+
+        } catch (Exception $e) {
+            return new Respuesta(false, "Error al iniciar sesión con Google: " . $e->getMessage(), null);
         }
-
-        // 🖼️ Guardar imagen si no existe localmente
-        $idUsuario = $usuario['id_usuario'];
-        $nombreArchivo = $idUsuario . ".jpg";
-        $rutaDestino = "../img/usuarios/" . $nombreArchivo;
-
-        // Descargar imagen
-        $contenido = file_get_contents($imgUrl);
-        if ($contenido !== false) {
-            file_put_contents($rutaDestino, $contenido);
-
-            // Actualizar ruta en la base de datos
-            $sqlUpdateImg = "UPDATE usuarios SET img = ? WHERE id_usuario = ?";
-            $stmtUpdate = $connection->prepare($sqlUpdateImg);
-            $stmtUpdate->bind_param("si", $nombreArchivo, $idUsuario);
-            $stmtUpdate->execute();
-
-            // Actualizar en array también
-            $usuario['img'] = $nombreArchivo;
-        }
-
-        $this->guardarSesion($usuario);
-        return new Respuesta(true, "Inicio de sesión con Google exitoso", $usuario);
-
-    } catch (Exception $e) {
-        return new Respuesta(false, "Error al iniciar sesión con Google: " . $e->getMessage(), null);
     }
-}
 
     private function guardarSesion($usuario) {
         session_start();

@@ -26,7 +26,7 @@ class RecetaDAO{
         }
     }
         
-    function setReceta($nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades, $nota) {
+    function setReceta($nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $img, $ingredientes, $cantidades, $unidades, $nota, $id_usr) {
         try {
             $connection = conection();
 
@@ -35,10 +35,10 @@ class RecetaDAO{
             $extension = pathinfo($nomImg, PATHINFO_EXTENSION);
 
             // Insertar en tabla recetas
-            $sql = "INSERT INTO recetas (nombre, categoría_id, tiempo_preparación, tiempo_cocción, porciones, instrucciones, img, nota) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO recetas (nombre, categoría_id, tiempo_preparación, tiempo_cocción, porciones, instrucciones, img, nota, id_usuario) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $connection->prepare($sql);
-            $stmt->bind_param("siiiisss", $nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $extension, $nota);
+            $stmt->bind_param("siiiisssi", $nombre, $categoria_id, $tiempo_preparacion, $tiempo_coccion, $porciones, $instrucciones, $extension, $nota, $id_usr);
             $stmt->execute();
 
             // Obtener el ID de la receta insertada
@@ -180,6 +180,29 @@ class RecetaDAO{
         }catch (Exception $e){
             $msj = "Error al eliminar la receta: ". $e->getMessage();
             return new Respuesta(false, $msj, null);
+        }
+    }
+
+    function getRecetasPorUsuario($id_usr) {
+        try {
+            $connection = conection();
+            $sql = "SELECT * FROM recetas WHERE id_usuario = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("i", $id_usr);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $recetas = [];
+                while ($row = $result->fetch_assoc()) {
+                    $recetas[] = $row;
+                }
+                return new Respuesta(true, "Recetas obtenidas correctamente", $recetas);
+            } else {
+                return new Respuesta(false, "No se encontraron recetas para el usuario", null);
+            }
+        } catch (Exception $e) {
+            return new Respuesta(false, "Error al obtener las recetas: " . $e->getMessage(), null);
         }
     }
 

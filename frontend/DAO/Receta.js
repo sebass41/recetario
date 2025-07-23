@@ -52,5 +52,12 @@ export default class RecetaDAO {
         const response = await fetch(url, config);
         return await response.json();
     }
+
+    async obtenerRecetasUsuario(){
+        let url = origin + "/backend/controller/RecetaController.php?fun=ou";
+        let response = await fetch(url);
+
+        return await response.json();
+    }
 }
 
