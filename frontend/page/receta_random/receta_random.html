@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receta Aleatoria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <button class="volver" aria-label="Volver atrás">&#x2B05;</button>
+    <h1>¿Qué receta te toca hoy? 😺🎰</h1>
+  </header>
+
+  <main>
+    <div class="gato-animado">
+    <img src="../../assets/icon/gato-random.png" alt="Gato animado girador">
+    </div>
+    <div class="carrusel-container">
+      <div id="carrusel" class="carrusel">
+        <!-- Recetas se cargarán aquí dinámicamente -->
+      </div>
+      <div class="resultado">
+        <h2 id="nombreReceta">Girando...</h2>
+        <img id="imagenReceta" src="" alt="" style="display: none;">
+      </div>
+
+      <div class="resultado">
+        <img id="imagenReceta" src="" alt="" style="display: none;">
+        <div class="botones" style="display: none;">
+        <button id="verRecetaBtn">Ver Receta</button>
+        <button id="girarDeNuevoBtn">Girar de nuevo</button>
+        </div>
+    </div>
+
+    </div>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

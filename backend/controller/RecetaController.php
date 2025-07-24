@@ -29,6 +29,9 @@ switch ($funcion){
     case 'ou':
         obtenerRecetasUsuario();
         break;
+    case 'or':
+        obtenerRandom();
+        break;
 }
 
 function getResetas(){
@@ -102,6 +105,11 @@ function obtenerRecetasUsuario() {
     $id_usr = $_SESSION['id'];
 
     $result = (new RecetaDAO())->getRecetasPorUsuario($id_usr);
+    echo json_encode($result);
+}
+
+function obtenerRandom() {
+    $result = (new RecetaDAO())->getRecetaRandom();
     echo json_encode($result);
 }
 ?>

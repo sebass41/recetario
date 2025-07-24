@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff0f5;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background-color: #ffc1e3;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 2px solid #f8bbd0;
+  flex-wrap: wrap;
+}
+
+.volver {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #880e4f;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.volver:hover {
+  transform: translateX(-5px);
+}
+
+.carrusel-container {
+  margin: 2rem auto;
+  max-width: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carrusel {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.item {
+  background: #ffe4ec;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 150px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.item img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.resultado {
+  margin-top: 2rem;
+}
+
+.resultado img {
+  max-width: 300px;
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.gato-animado {
+  margin-top: 1rem;
+  animation: balancear 1.2s ease-in-out infinite;
+}
+
+.gato-animado img {
+  width: 120px;
+  height: auto;
+}
+
+/* Animación que mueve al gato como si estuviera alentando la ruleta */
+@keyframes balancear {
+  0% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.resultado img.destacada {
+  transform: scale(1.2);
+  transition: transform 0.6s ease;
+}
+
+.botones {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.botones button {
+  padding: 0.7rem 1.5rem;
+  background-color: #ff9fcf;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.botones button:hover {
+  background-color: #ec407a;
+}
+
+.resultado img.destacada {
+  display: block;
+  margin: 1rem auto;
+  transform: scale(1);
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.6s ease, box-shadow 0.8s ease;
+}
+
+.resultado img.destacada.mostrar {
+  transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+@keyframes tilt {
+  0% { transform: scale(1.2) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(2deg); }
+  50% { transform: scale(1.2) rotate(-2deg); }
+  100% { transform: scale(1.2) rotate(0deg); }
+}
+
+.resultado img.destacada.mostrar {
+  animation: tilt 0.6s ease;
+}

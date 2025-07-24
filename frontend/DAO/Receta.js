@@ -59,5 +59,12 @@ export default class RecetaDAO {
 
         return await response.json();
     }
+
+    async getRecetasAleatorias(){
+        let url = origin + "/backend/controller/RecetaController.php?fun=or";
+        let response = await fetch(url);
+
+        return await response.json();
+    }
 }
 

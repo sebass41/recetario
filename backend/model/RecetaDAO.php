@@ -206,5 +206,25 @@ class RecetaDAO{
         }
     }
 
+    function getRecetaRandom() {
+        try {
+            $connection = conection();
+            $sql = "SELECT * FROM recetas ORDER BY RAND() LIMIT 10";
+            $result = $connection->query($sql);
+
+            if ($result->num_rows > 0) {
+                $recetas = [];
+                while ($row = $result->fetch_assoc()) {
+                    $recetas[] = $row;
+                }
+                return new Respuesta(true, "Recetas aleatorias obtenidas correctamente", $recetas);
+            } else {
+                return new Respuesta(false, "No hay recetas disponibles", null);
+            }
+        } catch (Exception $e) {
+            return new Respuesta(false, "Error al obtener la receta aleatoria: " . $e->getMessage(), null);
+        }
+    }
+
 }
 ?>

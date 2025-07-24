@@ -57,8 +57,13 @@ async function buscarRecetas(ingredientes) {
         todasLasRecetas = recetas.data;
         mostrarRecetas(todasLasRecetas);
         activarDetalleReceta();
+    } else if (ingredientes.length === 0) {
+        const contenedor = document.getElementById("resultados");
+        contenedor.innerHTML = "<p>Ingresa ingredientes para buscar recetas.</p>";
     } else {
-        mostrarError(recetas?.msj || "Error al buscar recetas");
+        console.error("Error al buscar recetas:", recetas);
+        const contenedor = document.getElementById("resultados");
+        contenedor.innerHTML = "<p>Error al buscar recetas. Inténtalo de nuevo más tarde.</p>";
     }
 }
 
