@@ -137,7 +137,7 @@ body.pliegue {
 }
 
 
-.recomendacion-wrapper:hover .nota-popup:not(.fijada) {
+.icono-nota:hover + .nota-popup:not(.fijada) {
   opacity: 1;
   pointer-events: auto;
 }
@@ -151,4 +151,31 @@ body.pliegue {
 .recomendacion-wrapper.fijada .nota-popup {
   opacity: 1;
   pointer-events: auto;
+}
+
+.gato-favorito {
+  width: 40px;
+  height: auto;
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
+}
+
+.gato-favorito:hover {
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: 0 0 8px rgba(255, 155, 180, 0.4);
+}
+
+.gato-favorito.activo {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+  animation: gatitoPum 0.3s ease;
+}
+
+/* 🎉 Animación suave al activar */
+@keyframes gatitoPum {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1.1); }
 }

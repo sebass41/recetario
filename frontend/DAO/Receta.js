@@ -67,4 +67,3 @@ export default class RecetaDAO {
         return await response.json();
     }
 }
-

@@ -1,14 +1,19 @@
 import CuentaDAO from "../../DAO/Cuenta.js";
 import SesionDAO from "../../DAO/Sesion.js";
 import RecetaDAO from "../../DAO/Receta.js";
+import FavoritoDAO from "../../DAO/Favorito.js";
+
 const cuentaDAO = new CuentaDAO();
 const sesionDAO = new SesionDAO();
 const recetaDAO = new RecetaDAO();
+const favoritoDAO = new FavoritoDAO();
 
 const recetasUsuario = await recetaDAO.obtenerRecetasUsuario();
 const usuario = await cuentaDAO.obtenerUsuario();
+const recetasFavoritas = await favoritoDAO.obtenerFavoritosUsuario();
+mostrarFavoritos(recetasFavoritas?.data || []);
 
-// Veriicar si hay sesión activa
+// Verificar si hay sesión activa
 if (!usuario) {
   window.location.href = "../iniciarSesion/inicioSesion.html";
 }
@@ -124,5 +129,29 @@ async function cambioImagenPerfil() {
     } else {
       console.error("Error al actualizar la imagen de perfil:", respuesta.msj);
     }
+  });
+}
+
+function mostrarFavoritos(favoritos) {
+  const contenedorFavoritos = document.getElementById("contenedorFavoritos");
+  const mensajeFavoritos = document.getElementById("mensajeFavoritos");
+
+  contenedorFavoritos.innerHTML = ""; // Limpiar
+
+  if (!favoritos || favoritos.length === 0) {
+    mensajeFavoritos.style.display = "block";
+    return;
+  }
+
+  mensajeFavoritos.style.display = "none";
+
+  favoritos.forEach(receta => {
+    const div = document.createElement("div");
+    div.className = "card-receta";
+    div.innerHTML = `
+      <img src="../../../backend/img/recetas/${receta.id}.${receta.img}" alt="${receta.nombre}">
+      <h4>${receta.nombre}</h4>
+    `;
+    contenedorFavoritos.appendChild(div);
   });
 }

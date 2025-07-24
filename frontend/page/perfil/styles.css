@@ -210,3 +210,43 @@ h3 {
   transform: scale(1.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.dual-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-secciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.seccion-recetas,
+.seccion-favoritos {
+  background: #fffafc;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.favoritos-subidos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.favoritos-subidos .card-receta {
+  background: #fff0f7;
+  border-color: #f8bbd0;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .perfil-secciones {
+    grid-template-columns: 1fr;
+  }
+}

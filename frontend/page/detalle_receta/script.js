@@ -1,4 +1,5 @@
 import RecetaDAO from "../../DAO/Receta.js";
+import FavoritoDAO from "../../DAO/Favorito.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const receta = JSON.parse(localStorage.getItem("recetaSeleccionada"));
@@ -8,21 +9,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // Cargar ingredientes desde la base de datos
   const recetaDAO = new RecetaDAO();
+  const favoritoDAO = new FavoritoDAO();
+
   const respuesta = await recetaDAO.obtenerIngredientesPorId(receta.id);
   const ingredientes = respuesta?.data ?? [];
 
-  // Asignar imagen
+  // Imagen de receta
   const imagen = document.getElementById("imagen-receta");
-  if (receta.img && receta.img !== "") {
-    imagen.src = `../../../backend/img/recetas/${receta.id}.${receta.img}`;
-  } else {
-    imagen.src = "../../assets/img/placeholder.png";
-  }
+  imagen.src = receta.img && receta.img !== ""
+    ? `../../../backend/img/recetas/${receta.id}.${receta.img}`
+    : "../../assets/img/placeholder.png";
   imagen.alt = receta.nombre;
 
-  // Asignar texto principal
+  // Info básica
   document.getElementById("nombre-receta").textContent = receta.nombre;
   document.getElementById("porciones").textContent = receta.porciones;
   document.getElementById("prep").textContent = `${receta.tiempo_preparación} min`;
@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   listaIngredientes.innerHTML = ingredientes.length
     ? ingredientes.map(ing => `<li>${ing.nombre} - ${ing.cantidad} ${ing.unidad}</li>`).join("")
     : "<li>No hay ingredientes disponibles.</li>";
-    const mensajeElement = document.createElement("p");
-    const mensaje = `¿Querés convertir alguna medida? Usá nuestro <a href="../convertidor_medidas/convertidor.html">conversor de medidas</a>.`;
-    mensajeElement.innerHTML = mensaje;
-    listaIngredientes.appendChild(mensajeElement);
+
+  const mensajeElement = document.createElement("p");
+  mensajeElement.innerHTML = `¿Querés convertir alguna medida? Usá nuestro <a href="../convertidor_medidas/convertidor.html">conversor de medidas</a>.`;
+  listaIngredientes.appendChild(mensajeElement);
 
   // Instrucciones
   const pasosTexto = receta.instrucciones ?? "";
@@ -45,42 +45,83 @@ document.addEventListener("DOMContentLoaded", async () => {
     .filter(p => p.trim() !== "")
     .map(p => `<li>${p.trim()}.</li>`)
     .join("");
-
   document.getElementById("instrucciones").innerHTML = pasos || "<li>No hay instrucciones disponibles.</li>";
 
-  // Efecto de pliegue al volver
+  // Volver con pliegue
   const btnVolver = document.querySelector(".volver");
   if (btnVolver) {
     btnVolver.addEventListener("click", () => {
       document.body.classList.add("pliegue");
-      setTimeout(() => window.history.back(), 400); // Espera 400ms antes de volver
+      setTimeout(() => window.history.back(), 400);
     });
   }
 
-  // Mostrar la nota si existe
+  // Nota y wrapper
   const nota = receta.nota?.trim();
-  if (nota) {
   const popup = document.getElementById("nota-popup");
-  popup.textContent = nota;
+  const wrapperNota = document.querySelector(".recomendacion-wrapper");
+  const iconoNota = document.querySelector(".icono-nota");
+
+  if (nota && nota !== null) {
+    popup.textContent = nota;
   } else {
-  document.querySelector(".recomendacion-wrapper").style.display = "none";
+    iconoNota.style.display = "none";
   }
 
-  let notaFijada = false;
-  const iconoNota = document.querySelector(".icono-nota");
-  const wrapperNota = document.querySelector(".recomendacion-wrapper");
-  const popup = document.getElementById("nota-popup");
+  // Gato favorito
+  const gatoFavorito = document.createElement("img");
+  gatoFavorito.alt = "Favorito";
+  gatoFavorito.className = "gato-favorito";
+  gatoFavorito.style.cursor = "pointer";
 
-  iconoNota.addEventListener("click", () => {
-    notaFijada = !notaFijada;
+  const gatoDefault = "../../assets/icon/gato_no_favorito.png";
+  const gatoActivo = "../../assets/icon/gato_favorito.png";
+  gatoFavorito.src = gatoDefault;
+  
+  // Si hay nota → insertar antes del iconoNota
+  if (nota && receta.nota !== null) {
+    wrapperNota.style.display = "flex";
+    wrapperNota.insertBefore(gatoFavorito, iconoNota);
+  } else {
+    iconoNota.style.display = "none";
+    wrapperNota.appendChild(gatoFavorito);
+  }
 
-    if (notaFijada) {
-      wrapperNota.classList.add("fijada");
-      iconoNota.classList.add("activa");
+  // Verificar si está en favoritos
+
+  if (await verificarFavorito(receta.id)){
+    gatoFavorito.src = gatoActivo;
+    gatoFavorito.classList.add("activo");
+  }
+
+
+  // Toggle favoritos
+  gatoFavorito.addEventListener("click", async () => {
+    if (gatoFavorito.classList.contains("activo")) {
+      // Eliminar favorito
+      await favoritoDAO.eliminarFavorito(receta.id);
+      gatoFavorito.src = gatoDefault;
+      gatoFavorito.classList.remove("activo");
     } else {
-      wrapperNota.classList.remove("fijada");
-      iconoNota.classList.remove("activa");
+      // Agregar favorito
+      await favoritoDAO.agregarFavorito(receta.id);
+      gatoFavorito.src = gatoActivo;
+      gatoFavorito.classList.add("activo");
     }
   });
 
+  // Nota toggle
+  let notaFijada = false;
+  iconoNota.addEventListener("click", () => {
+    notaFijada = !notaFijada;
+    wrapperNota.classList.toggle("fijada", notaFijada);
+    iconoNota.classList.toggle("activa", notaFijada);
+  });
 });
+
+async function verificarFavorito(id) {
+  const favoritoDAO = new FavoritoDAO();
+  const respuesta = await favoritoDAO.verificarFavorito(id);
+  console.log(respuesta.data.favorito);
+  return respuesta.data.favorito;
+}

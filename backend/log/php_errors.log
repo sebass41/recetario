@@ -234,3 +234,6 @@ Stack trace:
 [23-Jul-2025 16:41:02 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 111
 [23-Jul-2025 16:41:12 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 103
 [23-Jul-2025 19:52:09 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 103
+[24-Jul-2025 21:08:37 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 103
+[24-Jul-2025 21:33:59 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 111
+[24-Jul-2025 21:35:31 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\recetario\backend\model\SesionDAO.php on line 103

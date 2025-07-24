@@ -14,7 +14,7 @@
   </header>
 
   <main>
-    <section class="perfil-container">
+    <section class="perfil-container dual-column">
       <div class="perfil-usuario">
         <img id="fotoPerfil" src="../../assets/icon/gato_login.png" alt="Foto de perfil">
         <input type="file" id="selectorImagen" accept="image/*" style="display: none;">
@@ -24,9 +24,18 @@
         </div>
       </div>
 
-      <h3>Recetas que subiste</h3>
-      <div id="contenedorRecetas" class="recetas-subidas">
-        <!-- Recetas del usuario -->
+      <div class="perfil-secciones">
+        <div class="seccion-recetas">
+          <h3>Recetas que subiste</h3>
+          <div id="contenedorRecetas" class="recetas-subidas"></div>
+        </div>
+
+        <div class="seccion-favoritos">
+          <h3>Recetas favoritas</h3>
+          <div id="contenedorFavoritos" class="favoritos-subidos">
+            <p class="sin-recetas" id="mensajeFavoritos">Aún no agregaste ninguna receta a favoritos 😿</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
